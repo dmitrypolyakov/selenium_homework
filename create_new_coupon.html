@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://ec2-52-31-177-160.eu-west-1.compute.amazonaws.com/" />
+<title>create_new_coupon</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">create_new_coupon</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>css=#collapseOne a[title=Coupons]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#content &gt; .btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content &gt; .btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Dmitry's Coupon</td>
+	<td>couponName</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.floor(Math.random() * 24 + 1)</td>
+	<td>discountPercentage</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.floor(Math.random() * 99 + 1)</td>
+	<td>numberCoupons</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>${couponName}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=discount_percentage</td>
+	<td>${discountPercentage}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=valid_date</td>
+	<td>2017-03-06</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=number_coupons</td>
+	<td>${numberCoupons}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1</td>
+	<td>Coupon</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.alert-success</td>
+	<td>× SuccessCoupon ${couponName} created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content table tbody tr td</td>
+	<td>${couponName}</td>
+</tr>
+</tbody></table>
+</body>
+</html>
